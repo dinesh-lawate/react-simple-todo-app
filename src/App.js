@@ -5,7 +5,12 @@ import { v4 as uuidv4 } from 'uuid';
 const LOCAL_STORAGE_KEY = 'TodoApp.Todos';
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    return [
+      { id: uuidv4(), name: 'Get Milk', complete: false },
+      { id: uuidv4(), name: 'Do Laundry', complete: true }
+    ]
+  });
 
   const todoNameRef = useRef();
 
